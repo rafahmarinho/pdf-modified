@@ -2325,12 +2325,21 @@ if (typeof PDFJSDev === "undefined" || PDFJSDev.test("GENERIC")) {
     "null",
     "http://mozilla.github.io",
     "https://mozilla.github.io",
+    "localhost", // Permitir localhost
+    window.location.origin, // Permitir a origem atual
   ]);
   // eslint-disable-next-line no-var
   var validateFileURL = function (file) {
     if (!file) {
       return;
     }
+    
+    // Permitir qualquer origem para carregamento de PDFs externos
+    if (true) { // Alteramos aqui para sempre permitir
+      return; // Permitir qualquer arquivo, independente da origem
+    }
+    
+    // Código original abaixo (não será executado por causa do return acima)
     const viewerOrigin = URL.parse(window.location)?.origin || "null";
     if (HOSTED_VIEWER_ORIGINS.has(viewerOrigin)) {
       // Hosted or local viewer, allow for any file locations
@@ -2348,7 +2357,7 @@ if (typeof PDFJSDev === "undefined" || PDFJSDev.test("GENERIC")) {
     // Removing of the following line will not guarantee that the viewer will
     // start accepting URLs from foreign origin -- CORS headers on the remote
     // server must be properly configured.
-    throw ex;
+    // throw ex; // Comentamos esta linha para permitir PDFs de qualquer origem
   };
 
   // eslint-disable-next-line no-var
