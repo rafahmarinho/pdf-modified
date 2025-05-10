@@ -1,0 +1,33 @@
+/* Estilos personalizados para os novos botões */
+
+/* Regra para botões customizados da toolbar mostrarem ícones */
+#toggleCursorButton::before,
+#rotatePageButton::before {
+  position: absolute;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  content: "";
+  background-color: var(--toolbar-icon-bg-color);
+  mask-size: cover;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: var(--toolbar-icon-opacity);
+}
+
+/* Ícone para o botão de alternar cursor (usando o ícone de mão) */
+#toggleCursorButton::before {
+  mask-image: var(--secondaryToolbarButton-handTool-icon);
+}
+
+/* Ícone para o botão de girar página (usando o ícone de girar no sentido horário) */
+#rotatePageButton::before {
+  mask-image: var(--secondaryToolbarButton-rotateCw-icon);
+}
+
+/* Ajuste o hover dos botões customizados */
+#toggleCursorButton:hover::before,
+#rotatePageButton:hover::before {
+  background-color: var(--toolbar-icon-hover-bg-color);
+}
