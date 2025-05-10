@@ -76,6 +76,18 @@
       "dest": "/node_modules/@fluent/dom/esm/index.js"
     },
     {
+      "src": "/locale/locale.json",
+      "dest": "/web/locale/locale.json"
+    },
+    {
+      "src": "/locale/(.*)/viewer.ftl",
+      "dest": "/web/locale/$1/viewer.ftl"
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "/web/images/toolbarButton-viewThumbnail.svg"
+    },
+    {
       "handle": "filesystem"
     },
     {
