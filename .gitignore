@@ -7,5 +7,3 @@ Makefile
 examples/node/svgdump/
 examples/node/pdf2png/*.png
 .vercel
-vercel.json
-
